@@ -1,0 +1,835 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 91899 Derived Grade Survival Kit</title>
+  <meta name="description" content="The 91899 derived grade survival kit: the exam map, answer-building formulas, writing techniques, the grade ladder, fast fixes and a pre-exam plan. Offline study guide." />
+
+  <!-- Inline SVG favicon (no network) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%2316233d'/><text x='50' y='70' font-size='55' text-anchor='middle' fill='%238ab4ff' font-family='Georgia,serif' font-weight='bold'>A</text></svg>" />
+
+  <style>
+    /* ============================================================
+       91899 DERIVED GRADE SURVIVAL KIT - vanilla CSS (no frameworks, offline)
+       Theme: "ink & paper study workbook".
+       ============================================================ */
+    :root {
+      --paper:     #eef2fa;
+      --card:      #fbfcfe;
+      --ink:       #16233d;
+      --ink-soft:  #43557a;
+      --ink-faint: #7c8db0;
+      --line:      #d7e0ee;
+      --line-strong:#aab8d6;
+      --marker:    #2f6bf5;
+      --marker-soft:#dbe6fe;
+      --marker-dark:#1d4ed8;
+      --pen:       #d64545;
+      --pen-soft:  #fdeaea;
+      --green:     #2f7d52;
+      --green-soft:#e2f2e8;
+      --blue:      #1d4ed8;
+      --blue-soft: #dce7fb;
+      --purple:    #4338ca;
+      --purple-soft:#e0e7ff;
+      --chalk:     #16233d;
+      --chalk-ink: #e6edf9;
+      --shadow-hard: 4px 4px 0 rgba(22,35,61,.16);
+      --shadow-soft: 3px 3px 0 rgba(22,35,61,.09);
+      --radius:    10px;
+      --font-serif: Georgia, "Times New Roman", Times, serif;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --squiggle: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='9' viewBox='0 0 120 9'%3E%3Cpath d='M2 6.5Q12 2 22 5.5T42 6T62 4.5T82 6T102 5T118 5.5' fill='none' stroke='%232f6bf5' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img, svg { display: inline-block; vertical-align: middle; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    h1, h2, h3, h4 { line-height: 1.2; color: var(--ink); margin: 0; font-family: var(--font-serif); font-weight: 700; }
+    p { margin: 0; }
+    section { scroll-margin-top: 84px; }
+
+    /* ---------- Utility ---------- */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    .ic { width: 18px; height: 18px; flex-shrink: 0; }
+    .ic-sm { width: 14px; height: 14px; }
+    .ic-lg { width: 22px; height: 22px; }
+    .section { padding: 64px 0; }
+    .bg-white { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .bg-soft { background: var(--paper); }
+
+    .heading { max-width: 760px; margin: 0; text-align: left; }
+    .eyebrow {
+      display: inline-block;
+      background: var(--marker-soft); color: var(--ink);
+      font-family: var(--font-serif); font-style: italic; font-size: 12.5px;
+      padding: 5px 12px; border: 1.5px dashed var(--marker-dark);
+      transform: rotate(-1deg);
+    }
+    .heading h2 {
+      position: relative; font-size: clamp(26px, 3.5vw, 34px);
+      font-weight: 700; letter-spacing: .01em; margin-top: 16px; padding-bottom: 16px;
+    }
+    .heading h2::after {
+      content: ""; position: absolute; left: 0; bottom: 0; height: 9px; width: 130px;
+      background: var(--squiggle) no-repeat left bottom / auto 100%;
+    }
+    .heading p { margin-top: 14px; color: var(--ink-soft); font-size: 15.5px; max-width: 620px; }
+    .heading p b { color: var(--ink); }
+
+    /* ============================================================
+       NAVBAR
+       ============================================================ */
+    .nav {
+      position: fixed; inset: 0 0 auto 0; z-index: 100;
+      background: rgba(255,253,247,.92); backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--line);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); font-family: var(--font-serif); font-size: 15px; }
+    .brand .mark { width: 34px; height: 34px; border-radius: 8px; background: var(--chalk); color: #8ab4ff; display: grid; place-items: center; }
+    .brand em { font-style: normal; color: var(--green); }
+    .nav-links { display: none; align-items: center; gap: 2px; }
+    .nav-links a { padding: 8px 12px; border-radius: 6px; font-size: 14px; font-weight: 600; color: var(--ink-soft); }
+    .nav-links a:hover { background: var(--marker-soft); color: var(--ink); }
+    .nav-links a.active { background: var(--marker-soft); color: var(--marker-dark); box-shadow: 2px 2px 0 var(--chalk); }
+    .nav-toggle { display: inline-grid; place-items: center; width: 40px; height: 40px; border: 1.5px solid var(--line-strong); border-radius: 8px; background: transparent; color: var(--ink); }
+    .nav-toggle:hover { background: var(--marker-soft); }
+    #mobileMenu { display: none; border-top: 2px solid var(--line); background: var(--card); }
+    #mobileMenu.open { display: block; }
+    #mobileMenu a { display: block; padding: 12px 24px; font-weight: 600; color: var(--ink); }
+    #mobileMenu a:hover { background: var(--marker-soft); }
+
+    /* ============================================================
+       HERO (chalkboard)
+       ============================================================ */
+    .hero { position: relative; overflow: hidden; background: var(--chalk); color: var(--chalk-ink); }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(214,226,246,.18) 1px, transparent 1px);
+      background-size: 26px 26px;
+    }
+    .hero-content { position: relative; padding: 112px 0 72px; max-width: 820px; }
+    .hero .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--marker); color: #fff;
+      font-size: 12px; font-weight: 800; letter-spacing: .03em; text-transform: uppercase;
+      padding: 8px 14px; border: 2px solid #0f1c33; box-shadow: 3px 3px 0 rgba(0,0,0,.35);
+      transform: rotate(-1.5deg);
+    }
+    .hero h1 {
+      margin-top: 24px; color: var(--chalk-ink);
+      font-size: clamp(32px, 6vw, 50px); font-weight: 700; line-height: 1.1; letter-spacing: .005em;
+    }
+    .hero h1 span { color: #8ab4ff; }
+    .hero .sub { margin-top: 18px; color: rgba(226,234,248,.85); font-size: 16.5px; max-width: 640px; line-height: 1.65; }
+    .hero .sub strong { background: var(--marker); color: #fff; font-weight: 700; padding: 0 4px; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 8px; border: 2px solid var(--ink);
+      font-size: 14px; font-weight: 700; color: var(--ink);
+      box-shadow: 3px 3px 0 rgba(0,0,0,.2); transition: transform .1s, box-shadow .1s, background .15s;
+    }
+    .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 rgba(0,0,0,.2); }
+    .btn-teal { background: var(--marker); color: #fff; border-color: #0f1c33; }
+    .btn-teal:hover { background: #5a86ff; }
+    .btn-ghost { background: transparent; border: 2px solid rgba(226,234,248,.5); color: var(--chalk-ink); box-shadow: 3px 3px 0 rgba(0,0,0,.3); }
+    .btn-ghost:hover { background: rgba(226,234,248,.14); }
+
+    .hero-facts { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 40px; }
+    .fact { display: flex; gap: 12px; align-items: center; padding: 14px 16px; border: 1.5px dashed rgba(214,226,246,.35); border-radius: 8px; }
+    .fact .mark { width: 40px; height: 40px; border-radius: 8px; background: rgba(47,107,245,.22); color: #8ab4ff; display: grid; place-items: center; }
+    .fact strong { display: block; color: var(--chalk-ink); font-size: 14px; font-family: var(--font-serif); }
+    .fact span { font-size: 12px; color: rgba(214,226,246,.7); }
+
+    /* ============================================================
+       GROUND RULES + FORMULA CARDS
+       ============================================================ */
+    .rules {
+      margin-top: 40px; background: var(--chalk); color: var(--chalk-ink);
+      border: 1.5px solid #0f1c33; border-radius: var(--radius); padding: 20px 24px;
+      box-shadow: var(--shadow-hard); display: grid; gap: 6px; font-size: 13.5px;
+    }
+    .rules strong { color: #8ab4ff; display: flex; align-items: center; gap: 10px; font-size: 15px; font-family: var(--font-serif); margin-bottom: 4px; }
+    .rules strong svg { color: #8ab4ff; }
+
+    .q-list { display: grid; gap: 18px; margin-top: 40px; }
+    .q-card { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-soft); }
+    .q-card:hover { border-color: var(--line-strong); transform: translate(-1px, -1px); box-shadow: 5px 5px 0 rgba(22,35,61,.12); }
+    .q-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .q-num { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--chalk); color: #8ab4ff; font-family: var(--font-serif); font-weight: 700; font-size: 15px; flex-shrink: 0; }
+    .q-head h3 { flex: 1; min-width: 200px; font-size: 18px; }
+    .grade-chip { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 5px; border: 1.5px dashed currentColor; transform: rotate(-1deg); }
+    .chip-achieved { background: var(--blue-soft); color: var(--blue); }
+    .chip-merit    { background: var(--green-soft); color: var(--green); }
+    .chip-excellence { background: var(--purple-soft); color: var(--purple); }
+    .q-ask { margin-top: 8px; font-size: 13px; color: var(--ink-soft); font-style: italic; }
+    .formula {
+      margin-top: 14px; padding: 16px 18px; background: var(--marker-soft);
+      border: 1.5px dashed var(--marker-dark); border-radius: 8px;
+      font-family: var(--font-serif); font-size: 14.5px; line-height: 1.75; color: var(--ink);
+    }
+    .formula b { color: var(--marker-dark); font-weight: 700; border-bottom: 2px dotted var(--marker-dark); }
+    .q-rule { margin-top: 12px; display: flex; gap: 8px; font-size: 13px; line-height: 1.55; color: var(--ink); }
+    .q-rule svg { color: var(--pen); flex-shrink: 0; margin-top: 3px; }
+    .q-rule b { color: var(--pen); font-weight: 800; }
+
+    /* ---------- Decisions helper (Q1) ---------- */
+    .decide { margin-top: 14px; border: 1.5px dashed var(--line-strong); border-radius: 8px; background: var(--paper); padding: 16px 18px; }
+    .decide > strong { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink); font-family: var(--font-serif); }
+    .decide > strong svg { color: var(--green); }
+    .dask { margin-top: 8px; font-size: 12.5px; color: var(--ink-faint); font-style: italic; }
+    .dformula {
+      margin-top: 10px; font-family: var(--font-serif); font-size: 14px; line-height: 1.7; color: var(--ink);
+      background: var(--green-soft); border: 1.5px dashed #a9cba6; border-radius: 8px; padding: 12px 14px;
+    }
+    .dformula b { color: var(--green); font-weight: 700; border-bottom: 2px dotted var(--green); }
+    .decide ul { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 9px; }
+    .decide ul li { display: flex; gap: 8px; font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+    .decide ul li svg { color: var(--green); flex-shrink: 0; margin-top: 4px; }
+    .decide ul li b { color: var(--ink); }
+    .decide ul li em { font-style: italic; color: var(--ink-soft); }
+    .decide .drule { margin-top: 12px; font-size: 12.5px; line-height: 1.55; color: var(--ink-soft); }
+    .decide .drule b { color: var(--pen); font-weight: 800; }
+
+    /* ---------- Example demo box (Q2/Q3) ---------- */
+    .demo { margin-top: 14px; border: 1.5px dashed var(--line-strong); border-radius: 8px; background: var(--paper); padding: 16px 18px; }
+    .demo > strong { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink); font-family: var(--font-serif); }
+    .demo > strong svg { color: var(--purple); }
+    .demo .ans { margin-top: 10px; padding: 12px 14px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; font-family: var(--font-serif); font-size: 13.5px; line-height: 1.7; color: var(--ink); }
+    .demo .ans b { color: var(--purple); font-weight: 700; }
+    .demo .break { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; }
+    .demo .break li { display: flex; gap: 8px; font-size: 12.5px; line-height: 1.5; color: var(--ink-soft); }
+    .demo .break li svg { color: var(--purple); flex-shrink: 0; margin-top: 3px; }
+    .demo .break li b { color: var(--purple); font-weight: 800; }
+
+    /* ============================================================
+       TECHNIQUES
+       ============================================================ */
+    .tech-grid { display: grid; gap: 16px; margin-top: 40px; grid-template-columns: 1fr; }
+    .tech { display: flex; gap: 14px; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow-soft); }
+    .tech .num { width: 36px; height: 36px; border-radius: 8px; background: var(--marker); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 14px; flex-shrink: 0; box-shadow: 2px 2px 0 var(--chalk); }
+    .tech h4 { font-size: 16px; }
+    .tech p { margin-top: 6px; font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+    .tech p b { color: var(--ink); }
+
+    /* ============================================================
+       GRADE TABLE
+       ============================================================ */
+    .table-wrap { margin-top: 40px; overflow-x: auto; border: 1.5px solid var(--line); border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow-soft); }
+    table.cmp { width: 100%; min-width: 700px; border-collapse: collapse; font-size: 14px; text-align: left; }
+    table.cmp th { background: var(--chalk); color: var(--chalk-ink); padding: 14px 18px; }
+    table.cmp th:nth-child(2) { color: #7cc0ff; }
+    table.cmp th:nth-child(3) { color: #8ab4ff; }
+    table.cmp th:nth-child(4) { color: #b6c2ff; }
+    table.cmp td { padding: 14px 18px; border-top: 1px solid var(--line); color: var(--ink-soft); vertical-align: top; }
+    table.cmp td:first-child { font-weight: 700; color: var(--ink); }
+    table.cmp tr:nth-child(even) { background: var(--paper); }
+
+    /* ============================================================
+       FAST FIXES
+       ============================================================ */
+    .fix-list { display: grid; gap: 14px; margin-top: 40px; }
+    .fix { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--shadow-soft); display: grid; gap: 10px; }
+    .fix-dont { display: flex; gap: 8px; font-size: 13.5px; color: var(--ink-soft); font-style: italic; line-height: 1.5; }
+    .fix-dont svg { color: var(--pen); flex-shrink: 0; margin-top: 2px; }
+    .fix-do { display: flex; gap: 8px; font-size: 13.5px; color: var(--ink); line-height: 1.5; }
+    .fix-do svg { color: var(--green); flex-shrink: 0; margin-top: 2px; }
+    .fix-do b { color: var(--green); }
+    .fix-arrow { color: var(--ink-faint); font-weight: 800; text-align: center; }
+
+    /* ============================================================
+       EXEMPLAR (good vs bad)
+       ============================================================ */
+    .exemplar-grid { display: grid; grid-template-columns: 1fr; gap: 28px; margin-top: 40px; }
+    .ex-head { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--ink); font-family: var(--font-serif); }
+    .ex-head .mark { width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center; }
+    .ex-head .mark.good { background: var(--green-soft); color: var(--green); }
+    .ex-head .mark.bad { background: var(--pen-soft); color: var(--pen); }
+    .ex-box { margin-top: 14px; border: 1.5px solid var(--line); background: var(--card); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow-soft); }
+    .ex-box.good { border-color: var(--green); }
+    .ex-box.bad { border-color: var(--pen); }
+    .ex-box p { font-size: 14px; color: var(--ink); }
+    sup.ref { display: inline-flex; width: 16px; height: 16px; border-radius: 50%; background: var(--green); color: var(--card); font-size: 10px; font-weight: 800; align-items: center; justify-content: center; vertical-align: middle; margin-left: 2px; }
+    .annot { list-style: none; margin: 16px 0 0; padding: 16px 0 0; border-top: 1.5px dashed var(--line); display: grid; gap: 10px; }
+    .annot li { display: flex; gap: 10px; font-size: 12px; color: var(--ink-soft); }
+    .annot li b { color: var(--green); }
+    .ex-box.bad .annot li b { color: var(--pen); }
+    .ex-box.bad em { font-style: italic; color: var(--ink-soft); }
+
+    /* ============================================================
+       CALLOUT (PDF links)
+       ============================================================ */
+    .sam-callout { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; background: var(--chalk); color: var(--chalk-ink); border-radius: var(--radius); padding: 24px; box-shadow: 5px 5px 0 rgba(22,35,61,.2); border: 1.5px solid #0f1c33; }
+    .sam-callout strong { display: flex; align-items: center; gap: 10px; font-size: 18px; color: var(--chalk-ink); font-family: var(--font-serif); }
+    .sam-callout strong svg { color: #8ab4ff; }
+    .sam-callout p { margin: 6px 0 0; font-size: 13px; color: rgba(214,226,246,.75); max-width: 640px; }
+    .sam-callout .btn-wrap { display: flex; flex-wrap: wrap; gap: 10px; flex-shrink: 0; }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer { background: var(--chalk); color: rgba(226,234,248,.88); border-top: 4px solid var(--marker); padding: 40px 0; }
+    .foot-inner { display: flex; flex-direction: column; gap: 22px; align-items: center; justify-content: space-between; }
+    .foot-brand { display: flex; align-items: center; gap: 10px; }
+    .foot-brand .mark { width: 34px; height: 34px; border-radius: 8px; background: var(--marker); color: #fff; display: grid; place-items: center; }
+    .foot-brand strong { color: var(--chalk-ink); display: block; font-size: 14px; font-family: var(--font-serif); }
+    .foot-brand span { font-size: 11px; color: rgba(214,226,246,.6); }
+    .foot-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; font-size: 13px; }
+    .foot-links a { color: rgba(214,226,246,.75); }
+    .foot-links a:hover { color: #8ab4ff; }
+    footer .legal { margin-top: 26px; border-top: 1.5px dashed rgba(214,226,246,.22); padding-top: 20px; text-align: center; font-size: 11px; color: rgba(214,226,246,.55); }
+
+    /* ============================================================
+       PLAN CHECKLIST
+       ============================================================ */
+    .plan-grid { display: grid; gap: 14px; margin-top: 40px; grid-template-columns: 1fr; }
+    .plan-card { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--shadow-soft); }
+    .plan-card .mark { width: 32px; height: 32px; border-radius: 8px; background: var(--green-soft); color: var(--green); display: grid; place-items: center; flex-shrink: 0; }
+    .plan-card h4 { font-size: 15px; }
+    .plan-card p { margin-top: 4px; font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+    .plan-card p b { color: var(--ink); }
+    @media (min-width: 640px) { .plan-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (min-width: 640px) {
+      .hero-facts { grid-template-columns: repeat(2, 1fr); }
+      .tech-grid { grid-template-columns: 1fr 1fr; }
+      .exemplar-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 760px) {
+      .fix { grid-template-columns: 1fr auto 1fr; align-items: center; }
+    }
+    @media (min-width: 768px) {
+      .foot-inner { flex-direction: row; }
+    }
+    @media (min-width: 900px) {
+      .hero-facts { grid-template-columns: repeat(4, 1fr); }
+      .nav-links { display: flex; }
+      .nav-toggle { display: none; }
+      #mobileMenu { display: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="brand">
+        <span class="mark"><i data-icon="book-open-check" class="ic"></i></span>
+        91899 <em>Derived Grade Survival Kit</em>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#map" class="nav-link">Exam Map</a>
+        <a href="#formulas" class="nav-link">Formulas</a>
+        <a href="#techniques" class="nav-link">Techniques</a>
+        <a href="#grades" class="nav-link">Grade Ladder</a>
+        <a href="#fixes" class="nav-link">Fast Fixes</a>
+        <a href="#plan" class="nav-link">Pre-Exam Plan</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <i data-icon="menu" class="ic-lg" id="navToggleIcon"></i>
+      </button>
+    </div>
+
+    <div id="mobileMenu">
+      <a href="#home">Home</a>
+      <a href="#map">Exam Map</a>
+      <a href="#formulas">Formulas</a>
+      <a href="#techniques">Techniques</a>
+      <a href="#grades">Grade Ladder</a>
+      <a href="#fixes">Fast Fixes</a>
+      <a href="#plan">Pre-Exam Plan</a>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="home">
+    <div class="hero-grid"></div>
+    <div class="container hero-content">
+      <span class="badge"><i data-icon="sparkles" class="ic-sm"></i> NCEA Level 2 &middot; Digital Technologies &middot; AS91899 &middot; 2026</span>
+      <h1>The 91899 <span>Derived Grade Survival Kit</span></h1>
+      <p class="sub">The derived grade exam is a written conversation about the digital outcome you built &mdash; its purpose, your decisions, the requirements and implications you wrestled with, and what you'd do better next time. This survival kit <strong>doesn't show you the exam</strong>. It teaches you how to construct and write your answers &mdash; from a confident description to a judged evaluation.</p>
+      <div class="hero-cta">
+        <a href="#map" class="btn btn-teal"><i data-icon="rocket" class="ic"></i> The Exam Map</a>
+        <a href="#formulas" class="btn btn-ghost"><i data-icon="lightbulb" class="ic"></i> The Formulas</a>
+      </div>
+      <div class="hero-facts">
+        <div class="fact"><span class="mark"><i data-icon="layers" class="ic"></i></span><div><strong>Level 2</strong><span>Digital Technologies</span></div></div>
+        <div class="fact"><span class="mark"><i data-icon="award" class="ic"></i></span><div><strong>3 Credits</strong><span>Derived grade examination</span></div></div>
+        <div class="fact"><span class="mark"><i data-icon="file-text" class="ic"></i></span><div><strong>Closed book</strong><span>Written from memory</span></div></div>
+        <div class="fact"><span class="mark"><i data-icon="pen-tool" class="ic"></i></span><div><strong>800&ndash;1,500 words</strong><span>Across all your answers</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 1: THE EXAM MAP ================= -->
+  <section class="section bg-white" id="map">
+    <div class="container">
+      <div class="heading reveal">
+        <span class="eyebrow"><i data-icon="tag" class="ic-sm"></i> Section 1 &middot; Know the terrain</span>
+        <h2>The shape of the exam</h2>
+        <p>Three parts, one journey: describe what you built, connect it to requirements and implications, then judge your own work. This maps the <b>territory</b> &mdash; not the questions &mdash; so you arrive knowing how to think, not what to copy.</p>
+      </div>
+
+      <div class="rules reveal">
+        <strong><i data-icon="book-open-check" class="ic"></i> The ground rules</strong>
+        <span>&middot; Closed book &mdash; everything written from memory. No notes, no internet, no AI.</span>
+        <span>&middot; 800&ndash;1,500 words in total across all your answers.</span>
+        <span>&middot; Your own digital outcome from the past 12 months, based on Level 7 of the NZ Curriculum, with at least one developed digital component you created, tested and refined.</span>
+        <span>&middot; No images this year &mdash; your words are the only evidence, so every sentence must earn its place.</span>
+        <span>&middot; Know your school code and NSN &mdash; you'll type them into the header before you start.</span>
+        <span>&middot; Group project? Write only about your own role.</span>
+      </div>
+
+      <div class="q-list">
+
+        <article class="q-card reveal">
+          <div class="q-head">
+            <span class="q-num">1</span>
+            <h3>Part 1 &mdash; Describe what you made and how</h3>
+            <span class="grade-chip chip-achieved">Foundation</span>
+          </div>
+          <p class="q-ask">The exam opens with the story of your outcome: what you developed and the journey you took to build it.</p>
+          <p style="margin-top:10px;font-size:14px;color:var(--ink-soft);line-height:1.6;">Write so a stranger could picture your outcome &mdash; what it is, why it exists, who it's for, and what it does. Keep it precise, because every later answer will lean on this paragraph.</p>
+          <p style="margin-top:10px;font-size:14px;color:var(--ink-soft);line-height:1.6;">You'll also describe the development process you followed. This part generally asks you to explain a decision you made along the way &mdash; the kind of choice that shaped how the work got done &mdash; and to give the reason behind it.</p>
+        </article>
+
+        <article class="q-card reveal">
+          <div class="q-head">
+            <span class="q-num">2</span>
+            <h3>Part 2 &mdash; Connect to requirements &amp; implications</h3>
+            <span class="grade-chip chip-merit">Where depth is earned</span>
+          </div>
+          <p class="q-ask">The middle of the exam tests whether your outcome is more than a build &mdash; whether it met real-world demands and was shaped by broader considerations.</p>
+          <p style="margin-top:10px;font-size:14px;color:var(--ink-soft);line-height:1.6;">This part generally asks about a requirement your outcome had to meet &mdash; the sort of demand like how it looks, how it works, how usable it is, or how accessible it is &mdash; and how you went about addressing it.</p>
+          <p style="margin-top:10px;font-size:14px;color:var(--ink-soft);line-height:1.6;">It also generally asks about an implication that influenced you while you developed &mdash; the bigger-world considerations like people, ethics, the law, ownership of ideas, or the end-users themselves &mdash; and the effect it had on what you produced.</p>
+        </article>
+
+        <article class="q-card reveal">
+          <div class="q-head">
+            <span class="q-num">3</span>
+            <h3>Part 3 &mdash; Evaluate and reflect</h3>
+            <span class="grade-chip chip-excellence">Where Excellence lives</span>
+          </div>
+          <p class="q-ask">The exam finishes by looking back: it generally asks about decisions you made while developing, and it always has some version of "what would you do differently?".</p>
+          <p style="margin-top:10px;font-size:14px;color:var(--ink-soft);line-height:1.6;">This part generally asks about a couple of decisions you made during development. The expectation is that you judge them, not retell them &mdash; weighing whether each worked, how you know, what it cost, and whether you'd make it again.</p>
+          <p style="margin-top:10px;font-size:14px;color:var(--ink-soft);line-height:1.6;">These exams always close with a "what would you do differently..." style question. Be ready to turn a lesson you learnt during development into a specific improvement to the outcome.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 2: THE FORMULAS ================= -->
+  <section class="section bg-soft" id="formulas">
+    <div class="container">
+      <div class="heading reveal">
+        <span class="eyebrow"><i data-icon="tag" class="ic-sm"></i> Section 2 &middot; The answer formulas</span>
+        <h2>Formulas for building every answer</h2>
+        <p>Each answer task is a small structure. Fill these frames with <b>your</b> outcome and you're building a response that earns depth &mdash; because every frame forces you to add the reason, the evidence or the trade-off that markers reward.</p>
+      </div>
+
+      <div class="q-list">
+
+        <article class="q-card reveal">
+          <div class="q-head">
+            <span class="q-num">1</span>
+            <h3>Part 1 &mdash; Your outcome and the choices you made</h3>
+            <span class="grade-chip chip-achieved">Foundation</span>
+          </div>
+          <p class="q-ask">The opening answers: who, what and why &mdash; then the story of how it got built.</p>
+          <div class="formula">
+            "I made a <b>[type of outcome]</b> for <b>[audience]</b>, because <b>[purpose]</b>. It contains <b>[main digital components]</b>, and its key features are <b>[feature 1, feature 2, feature 3]</b>. I developed the digital component using <b>[software]</b>.<br />
+            I worked through <b>[stage 1] &rarr; [stage 2] &rarr; [stage 3]</b>, and I tested and refined the component by <b>[method]</b>.<br />
+            One important decision I made was to <b>[choice]</b>. I chose this instead of <b>[alternative]</b>, because <b>[reason]</b>."
+          </div>
+          <div class="demo">
+            <strong><i data-icon="file-text" class="ic"></i> Example answer, broken down</strong>
+            <p class="ans">"Decision 1 &mdash; I decided to <b>build the navigation and page structure first</b>, before adding any content. I chose this instead of <b>designing each page as I went</b>, because every page depends on the menu &mdash; once the structure worked, adding pages was just filling in the blanks.<br />
+            Decision 2 &mdash; I decided to <b>test a paper prototype with a classmate</b> before writing any code. I chose this instead of <b>building the real thing straight away</b>, because a cheap sketch gets feedback fast, and it's much easier to redraw a page than to rewrite finished code."</p>
+            <ul class="break">
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>1 &middot; Decision 1 (sequencing)</b> &mdash; navigation/structure built first</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>2 &middot; The "instead of"</b> &mdash; designing each page as I went</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>3 &middot; The "because"</b> &mdash; every page depends on the menu</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>4 &middot; Decision 2 (end-user considerations)</b> &mdash; paper prototype tested with a classmate</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>5 &middot; The "instead of"</b> &mdash; building the real thing straight away</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>6 &middot; The "because"</b> &mdash; a sketch gets feedback fast; easier to redraw than to rewrite</li>
+            </ul>
+          </div>
+          <p class="q-rule"><i data-icon="help-circle" class="ic"></i><span><b>Rule:</b> the "instead of" is the difference between listing a decision and explaining one. Name the road not taken.</span></p>
+        </article>
+
+        <article class="q-card reveal">
+          <div class="q-head">
+            <span class="q-num">2</span>
+            <h3>Part 2 &mdash; Requirements, implications and influences</h3>
+            <span class="grade-chip chip-merit">Earns depth</span>
+          </div>
+          <p class="q-ask">Show that your outcome is more than a build &mdash; shaped by real-world demands and wider influences.</p>
+          <div class="formula">
+            "My outcome needed to meet <b>[aesthetics / functionality / usability / accessibility]</b>. To address it, I decided to <b>[action]</b>. What I had to consider was <b>[consideration]</b> &mdash; for example, <b>[specific feature or detail]</b>.<br />
+            I was influenced by the <b>[social / ethical / legal / intellectual property / end-user]</b> implication of <b>[issue]</b>. It affected my outcome because <b>[effect]</b>. For example, I <b>[exact change]</b>."
+          </div>
+          <div class="demo">
+            <strong><i data-icon="file-text" class="ic"></i> Example answer, broken down</strong>
+            <p class="ans">"My website needed to meet the <b>usability</b> requirement, because my audience are older adults who find cluttered pages confusing. To address it, I decided to <b>give every page one clear action</b>. What I had to consider was <b>that too many options overwhelm the reader</b> &mdash; for example, I moved the booking form to its own dedicated page. I was also influenced by the <b>social</b> implication of <b>inclusivity</b> &mdash; a service should work for everyone, whatever their confidence with technology. It affected my outcome because <b>I chose simple language and large buttons</b> over decorative extras. For example, every button reads as plain text, not an icon, so nothing needs to be guessed."</p>
+            <ul class="break">
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>1 &middot; Name the requirement</b> &mdash; usability, linked to the audience</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>2 &middot; State the decision</b> &mdash; one clear action per page</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>3 &middot; The "what I had to consider"</b> &mdash; too many options overwhelm the reader</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>4 &middot; The specific example</b> &mdash; booking form moved to its own page</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>5 &middot; Name the implication</b> &mdash; social / inclusivity</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>6 &middot; The effect</b> &mdash; simple language and large buttons over decorative extras</li>
+            </ul>
+          </div>
+          <p class="q-rule"><i data-icon="help-circle" class="ic"></i><span><b>Rule:</b> an implication only counts if it changed what you built. Your "for example" must be something only <b>your</b> outcome could produce.</span></p>
+        </article>
+
+        <article class="q-card reveal">
+          <div class="q-head">
+            <span class="q-num">3</span>
+            <h3>Part 3 &mdash; Judging decisions and what you'd change</h3>
+            <span class="grade-chip chip-excellence">Earns Excellence</span>
+          </div>
+          <p class="q-ask">Judge your own work with evidence, then turn one honest weakness into a specific improvement.</p>
+          <div class="formula">
+            "I decided to <b>[decision]</b> because <b>[reason]</b>. I know it worked because <b>[evidence &mdash; a test, a measurement, feedback]</b>. It succeeded in <b>[impact]</b>, but it cost me <b>[limitation]</b>. Overall, it was <b>[verdict]</b>.<br />
+            <b>[A test / a user's comment / my own review]</b> showed that <b>[weakness]</b>. I would improve the outcome by <b>[exact change]</b>. This matters to <b>[end-user]</b> because <b>[benefit]</b>."
+          </div>
+          <div class="demo">
+            <strong><i data-icon="file-text" class="ic"></i> Example answer, broken down</strong>
+            <p class="ans">"I decided to <b>test the site with three real users partway through the build</b>, because my assumptions about how people would use it could be wrong. I know it worked because the testers <b>found two navigation problems I hadn't noticed</b>, and fixing them took minutes while the site was still unfinished. It succeeded in <b>catching problems when they were cheap to fix</b>, but it cost me <b>build time and deadline pressure</b>. Overall, it was the <b>right call</b>.<br />
+            My second decision was to <b>use SVGs and CSS gradients instead of image files</b>, because the site was loading too slowly. I know it worked because the <b>load time dropped from about six seconds to two</b>. It succeeded in <b>a much lighter site</b>, but it limited the look to <b>clean, flat graphics</b>. Overall, I'd make that trade-off again.<br />
+            My <b>screen-reader test</b> showed that some buttons were announced as 'link, link', so a blind user couldn't tell what they did. I would improve the outcome by <b>giving every button a clear descriptive label and testing earlier in the build</b>. This matters to screen-reader users because they could navigate the site as easily as anyone else."</p>
+            <ul class="break">
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>1 &middot; Decision 1</b> &mdash; real-user testing partway through the build</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>2 &middot; The evidence</b> &mdash; testers found two navigation problems I'd missed</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>3 &middot; Success + cost</b> &mdash; caught early when cheap to fix, but cost build time</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>4 &middot; The verdict</b> &mdash; right call</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>5 &middot; Decision 2</b> &mdash; SVGs and CSS gradients instead of image files</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>6 &middot; The evidence + trade-off</b> &mdash; load time 6s &rarr; 2s, but a flatter look</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>7 &middot; The reflection trigger</b> &mdash; screen-reader test revealed unclear labels</li>
+              <li><i data-icon="check-circle-2" class="ic-sm"></i> <b>8 &middot; The change + who it helps</b> &mdash; descriptive labels, tested earlier, for screen-reader users</li>
+            </ul>
+          </div>
+          <p class="q-rule"><i data-icon="help-circle" class="ic"></i><span><b>Rule:</b> "I'd do better next time" earns zero. Name the exact change &mdash; and the person it helps.</span></p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 3: THE TECHNIQUES ================= -->
+  <section class="section bg-soft" id="techniques">
+    <div class="container">
+      <div class="heading reveal">
+        <span class="eyebrow"><i data-icon="tag" class="ic-sm"></i> Section 3 &middot; Writing technique</span>
+        <h2>6 techniques that lift every answer</h2>
+        <p>Run every sentence through these rules. If it breaks one, rewrite it before it costs you a grade.</p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech reveal"><span class="num">1</span><div><h4>Always say why</h4><p>Every choice needs a reason: "I chose X because Y." <b>No reason, no Merit.</b></p></div></div>
+        <div class="tech reveal"><span class="num">2</span><div><h4>Use exact details</h4><p>Don't say "it works". Say "load time dropped from 6 seconds to 2". <b>If another student could write your sentence, make it yours.</b></p></div></div>
+        <div class="tech reveal"><span class="num">3</span><div><h4>Link it all up</h4><p>Requirement &rarr; bigger issue &rarr; what you did &rarr; real example. <b>If the issue didn't change what you built, don't mention it.</b></p></div></div>
+        <div class="tech reveal"><span class="num">4</span><div><h4>Tell the truth about trade-offs</h4><p>"I chose X over Y because&hellip;" <b>Saying what didn't work shows real thinking, not weakness.</b></p></div></div>
+        <div class="tech reveal"><span class="num">5</span><div><h4>Judge it, don't retell it</h4><p>Don't just say what you did. <b>Say if it worked, how you know, and what it cost you.</b></p></div></div>
+        <div class="tech reveal"><span class="num">6</span><div><h4>Say who it helps</h4><p>Every change you'd make should name the person it helps and how. <b>Who is better off because of this?</b></p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 4: THE GRADE LADDER ================= -->
+  <section class="section bg-white" id="grades">
+    <div class="container">
+      <div class="heading reveal">
+        <span class="eyebrow"><i data-icon="tag" class="ic-sm"></i> Section 4 &middot; The grade ladder</span>
+        <h2>What each grade actually means</h2>
+        <p>The levels are <b>cumulative</b> &mdash; Merit includes everything at Achieved, and Excellence includes everything at Merit. Climb it: <b>Describe &rarr; Explain &rarr; Discuss &rarr; Evaluate.</b></p>
+      </div>
+
+      <div class="table-wrap reveal">
+        <table class="cmp">
+          <thead>
+            <tr>
+              <th>Level</th>
+              <th>What the achievement standard requires</th>
+              <th>How this looks in your answers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Achieved</td><td>A summary of developing the outcome: <b>describing</b> the digital outcome that was developed, and <b>explaining</b> decisions that were made in the development process.</td><td>A precise picture of your outcome &mdash; purpose, audience, components, key features &mdash; and your decisions, each with a reason: "I chose X instead of Y, because Z."</td></tr>
+            <tr><td>Merit</td><td>Everything at Achieved, plus an in-depth summary: <b>discussing</b> how the digital outcome addressed relevant requirements and implications.</td><td>Requirements (aesthetics, functionality, usability, accessibility) and implications (social, ethical, legal, intellectual property, end-user considerations) shown to have changed what you actually built &mdash; with specific examples.</td></tr>
+            <tr><td>Excellence</td><td>Everything at Merit, plus a comprehensive summary: <b>evaluating</b> decisions made in the development process and <b>discussing what could be done differently</b> to improve the digital outcome, based on insights gained.</td><td>Judged decisions with evidence and both sides of the call, honest trade-offs, and an exact improvement grounded in something you learnt &mdash; a test, feedback, or a review.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 5: FAST FIXES ================= -->
+  <section class="section bg-soft" id="fixes">
+    <div class="container">
+      <div class="heading reveal">
+        <span class="eyebrow"><i data-icon="tag" class="ic-sm"></i> Section 5 &middot; The traps</span>
+        <h2>Fast fixes for the most common fails</h2>
+        <p>Markers see the same mistakes every year. Here's the rewrite that fixes each one.</p>
+      </div>
+
+      <div class="fix-list">
+
+        <div class="fix reveal">
+          <p class="fix-dont"><i data-icon="x" class="ic"></i> "My outcome has a homepage and a gallery page."</p>
+          <span class="fix-arrow">&rarr;</span>
+          <p class="fix-do"><i data-icon="check" class="ic"></i> "<b>My outcome lets [user] do [the key thing] quickly and easily.</b>"</p>
+        </div>
+
+        <div class="fix reveal">
+          <p class="fix-dont"><i data-icon="x" class="ic"></i> "The outcome is accessible and usable."</p>
+          <span class="fix-arrow">&rarr;</span>
+          <p class="fix-do"><i data-icon="check" class="ic"></i> "<b>Every button works with only the keyboard &mdash; I watched a [user] use it without help.</b>"</p>
+        </div>
+
+        <div class="fix reveal">
+          <p class="fix-dont"><i data-icon="x" class="ic"></i> "Privacy is important, so we thought about it."</p>
+          <span class="fix-arrow">&rarr;</span>
+          <p class="fix-do"><i data-icon="check" class="ic"></i> "<b>Because the app collects [data], I added a consent screen before anything is shared.</b>"</p>
+        </div>
+
+        <div class="fix reveal">
+          <p class="fix-dont"><i data-icon="x" class="ic"></i> "I chose [X] and it made the outcome better."</p>
+          <span class="fix-arrow">&rarr;</span>
+          <p class="fix-do"><i data-icon="check" class="ic"></i> "<b>[A test] showed [result] &mdash; but it doubled build time, so polish slipped elsewhere.</b>"</p>
+        </div>
+
+        <div class="fix reveal">
+          <p class="fix-dont"><i data-icon="x" class="ic"></i> "I'd do things differently next time."</p>
+          <span class="fix-arrow">&rarr;</span>
+          <p class="fix-do"><i data-icon="check" class="ic"></i> "<b>[Users] gave up on slow loading, so I'd add [a fix] to keep them.</b>"</p>
+        </div>
+
+        <div class="fix reveal">
+          <p class="fix-dont"><i data-icon="x" class="ic"></i> "It worked great. Everyone loved it. Nothing went wrong."</p>
+          <span class="fix-arrow">&rarr;</span>
+          <p class="fix-do"><i data-icon="check" class="ic"></i> "<b>It worked, except [honest limit] &mdash; which is where I found my improvement.</b>"</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 6: PRE-EXAM PLAN ================= -->
+  <section class="section bg-white" id="plan">
+    <div class="container">
+      <div class="heading reveal">
+        <span class="eyebrow"><i data-icon="tag" class="ic-sm"></i> Section 6 &middot; Before you sit the exam</span>
+        <h2>Stock your memory bank</h2>
+        <p>Closed book means your answers come from memory &mdash; so before the exam, know these details about <b>your</b> outcome cold. If you can't answer one of these about your own project, that's the gap to close.</p>
+      </div>
+
+      <div class="plan-grid">
+        <div class="plan-card reveal">
+          <span class="mark"><i data-icon="check-circle-2" class="ic"></i></span>
+          <div><h4>Your outcome</h4><p>The type, its purpose, the target audience, the main digital components, two or three key features, and the software you used to build it.</p></div>
+        </div>
+        <div class="plan-card reveal">
+          <span class="mark"><i data-icon="check-circle-2" class="ic"></i></span>
+          <div><h4>Your process</h4><p>The stages in order, what you did at each one, and how you tested and refined the digital component.</p></div>
+        </div>
+        <div class="plan-card reveal">
+          <span class="mark"><i data-icon="check-circle-2" class="ic"></i></span>
+          <div><h4>One requirement you met</h4><p>In aesthetics, functionality, usability or accessibility &mdash; and the specific feature or detail that proves you met it.</p></div>
+        </div>
+        <div class="plan-card reveal">
+          <span class="mark"><i data-icon="check-circle-2" class="ic"></i></span>
+          <div><h4>One implication that influenced you</h4><p>Social, ethical, legal, intellectual property, or end-user considerations &mdash; and the exact change it caused to what you built.</p></div>
+        </div>
+        <div class="plan-card reveal">
+          <span class="mark"><i data-icon="check-circle-2" class="ic"></i></span>
+          <div><h4>Two different decisions</h4><p>Each one with the alternative you rejected and the "because" &mdash; and make sure the second isn't the first restated.</p></div>
+        </div>
+        <div class="plan-card reveal">
+          <span class="mark"><i data-icon="check-circle-2" class="ic"></i></span>
+          <div><h4>Your evidence</h4><p>A test, a measurement, or a piece of feedback that shows each decision actually worked.</p></div>
+        </div>
+        <div class="plan-card reveal">
+          <span class="mark"><i data-icon="check-circle-2" class="ic"></i></span>
+          <div><h4>One honest weakness</h4><p>Something a test or a user revealed about your outcome, and the exact change you'd make because of it.</p></div>
+        </div>
+        <div class="plan-card reveal">
+          <span class="mark"><i data-icon="check-circle-2" class="ic"></i></span>
+          <div><h4>The housekeeping</h4><p>Your school code and NSN, and a rough word budget per part so you don't blow the 800&ndash;1,500 total.</p></div>
+        </div>
+      </div>
+
+      <div class="sam-callout reveal">
+        <div>
+          <strong><i data-icon="repeat" class="ic"></i> How to rehearse</strong>
+          <p>Print the blank paper, put your phone in another room, and write a timed answer from memory. When you finish, check yourself: did I name the alternative I rejected? Did I give evidence for every verdict? Did I say who my improvement helps?</p>
+        </div>
+        <div class="btn-wrap">
+          <a class="btn btn-teal" href="#map"><i data-icon="map" class="ic"></i> Review the exam map</a>
+          <a class="btn btn-ghost" href="#formulas"><i data-icon="pen-tool" class="ic"></i> Revisit the formulas</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container">
+      <div class="foot-inner">
+        <div class="foot-brand">
+          <span class="mark"><i data-icon="book-open-check" class="ic"></i></span>
+          <div><strong>The 91899 Derived Grade Survival Kit</strong><span>NCEA Level 2 &middot; Digital Technologies</span></div>
+        </div>
+        <nav class="foot-links">
+          <a href="#map">Exam Map</a>
+          <a href="#formulas">Formulas</a>
+          <a href="#techniques">Techniques</a>
+          <a href="#grades">Grade Ladder</a>
+          <a href="#fixes">Fast Fixes</a>
+          <a href="#plan">Pre-Exam Plan</a>
+        </nav>
+      </div>
+      <div class="legal">
+        <p>Unofficial student study resource for the AS91899 derived grade examination. Not affiliated with NZQA. Always refer to your teacher and the official NZQA assessment specification.</p>
+        <p style="margin-top:6px">Built with vanilla HTML, CSS &amp; JS &middot; 100% offline &middot; <span id="year"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ============================================================
+       ICON LIBRARY - inline SVG paths (from Lucide, ISC licence).
+       ============================================================ */
+    var ICONS = {
+  "award": "<path d=\"m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526\" />\n  <circle cx=\"12\" cy=\"8\" r=\"6\" />",
+  "book-open-check": "<path d=\"M12 5v16\" />\n  <path d=\"m16 12 2 2 4-4\" />\n  <path d=\"M22 6V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2h4.001A2 2 0 0022 17v-1.344\" />",
+  "check": "<path d=\"M20 6 9 17l-5-5\" />",
+  "check-circle-2": "<circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"m9 12 2 2 4-4\" />",
+  "download": "<path d=\"M12 15V3\" />\n  <path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\" />\n  <path d=\"m7 10 5 5 5-5\" />",
+  "file-text": "<path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M10 9H8\" />\n  <path d=\"M16 13H8\" />\n  <path d=\"M16 17H8\" />",
+  "help-circle": "<circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3\" />\n  <path d=\"M12 17h.01\" />",
+  "layers": "<path d=\"M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z\" />\n  <path d=\"M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12\" />\n  <path d=\"M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17\" />",
+  "list-checks": "<path d=\"M13 5h8\" />\n  <path d=\"M13 12h8\" />\n  <path d=\"M13 19h8\" />\n  <path d=\"m3 17 2 2 4-4\" />\n  <path d=\"m3 7 2 2 4-4\" />",
+  "lightbulb": "<path d=\"M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5\" />\n  <path d=\"M9 18h6\" />\n  <path d=\"M10 22h4\" />",
+  "map": "<path d=\"M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z\" />\n  <path d=\"M15 5.764v15\" />\n  <path d=\"M9 3.236v15\" />",
+  "menu": "<path d=\"M4 5h16\" />\n  <path d=\"M4 12h16\" />\n  <path d=\"M4 19h16\" />",
+  "pen-tool": "<path d=\"M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z\" />\n  <path d=\"m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18\" />\n  <path d=\"m2.3 2.3 7.286 7.286\" />\n  <circle cx=\"11\" cy=\"11\" r=\"2\" />",
+  "repeat": "<path d=\"m17 2 4 4-4 4\" />\n  <path d=\"M3 11v-1a4 4 0 0 1 4-4h14\" />\n  <path d=\"m7 22-4-4 4-4\" />\n  <path d=\"M21 13v1a4 4 0 0 1-4 4H3\" />",
+  "rocket": "<path d=\"M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5\" />\n  <path d=\"M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09\" />\n  <path d=\"M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z\" />\n  <path d=\"M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05\" />",
+  "rotate-ccw": "<path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\" />\n  <path d=\"M3 3v5h5\" />",
+  "search": "<path d=\"m21 21-4.34-4.34\" />\n  <circle cx=\"11\" cy=\"11\" r=\"8\" />",
+  "sparkles": "<path d=\"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z\" />\n  <path d=\"M20 2v4\" />\n  <path d=\"M22 4h-4\" />\n  <circle cx=\"4\" cy=\"20\" r=\"2\" />",
+  "tag": "<path d=\"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z\" />\n  <circle cx=\"7.5\" cy=\"7.5\" r=\".5\" fill=\"currentColor\" />",
+  "target": "<circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <circle cx=\"12\" cy=\"12\" r=\"6\" />\n  <circle cx=\"12\" cy=\"12\" r=\"2\" />",
+  "x": "<path d=\"M18 6 6 18\" />\n  <path d=\"m6 6 12 12\" />"
+};
+
+    function renderIcons(root) {
+      (root || document).querySelectorAll('[data-icon]').forEach(function (el) {
+        var name = el.getAttribute('data-icon');
+        var inner = ICONS[name];
+        if (!inner) return;
+        var cls = el.getAttribute('class') || '';
+        var id = el.getAttribute('id');
+        var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" ' +
+                  'stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ' +
+                  (id ? 'id="' + id + '" ' : '') +
+                  'class="' + cls + '" aria-hidden="true">' + inner + '</svg>';
+        el.outerHTML = svg;
+      });
+    }
+
+    /* ============================================================
+       STARTUP
+       ============================================================ */
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('year').textContent = new Date().getFullYear();
+      renderIcons();
+
+      initReveal();
+      initNav();
+      initScrollSpy();
+    });
+
+    /* ---------- Reveal on scroll ---------- */
+    function initReveal() {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      els.forEach(function (el) { obs.observe(el); });
+    }
+
+    /* ---------- Navbar: mobile menu ---------- */
+    function initNav() {
+      var toggle = document.getElementById('navToggle');
+      var menu = document.getElementById('mobileMenu');
+      var icon = document.getElementById('navToggleIcon');
+      toggle.addEventListener('click', function () {
+        var open = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        icon.setAttribute('data-icon', open ? 'x' : 'menu');
+        icon.innerHTML = ICONS[open ? 'x' : 'menu'];
+      });
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          menu.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          icon.setAttribute('data-icon', 'menu');
+          icon.innerHTML = ICONS.menu;
+        });
+      });
+    }
+
+    /* ---------- Scrollspy: highlight the active section ---------- */
+    function initScrollSpy() {
+      var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+      if (!('IntersectionObserver' in window)) return;
+      var map = {};
+      links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            links.forEach(function (a) { a.classList.remove('active'); });
+            var link = map[e.target.id];
+            if (link) link.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-40% 0px -55% 0px' });
+      links.forEach(function (a) {
+        var sec = document.getElementById(a.getAttribute('href').slice(1));
+        if (sec) obs.observe(sec);
+      });
+    }
+  </script>
+</body>
+</html>
